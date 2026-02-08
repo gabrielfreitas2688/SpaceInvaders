@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
         float direcao = Input.GetAxisRaw("Horizontal");
 
         rb.linearVelocity = new Vector2(playerEntity.mooveSpeed * direcao, rb.linearVelocity.y);
-        Debug.Log("OK");
 
 
     }
