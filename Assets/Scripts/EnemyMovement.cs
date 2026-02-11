@@ -24,7 +24,18 @@ public class EnemyMovement : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Instantiate(enemy, transform.position, Quaternion.identity, transform);
+        for(int i = -6; i <= 6; i+=2)
+        {
+            Vector3 newPosition = transform.position;
+            newPosition.x += i;
+            Instantiate(enemy, newPosition, Quaternion.identity, transform);
+            newPosition.y -= 1;
+            Instantiate(enemy, newPosition, Quaternion.identity, transform);
+            newPosition.y -= 1;
+            Instantiate(enemy, newPosition, Quaternion.identity, transform);
+        }
+
+
     }
 
     void EnemyMoove()
