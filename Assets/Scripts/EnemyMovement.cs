@@ -24,18 +24,18 @@ public class EnemyMovement : MonoBehaviour
 
     void SpawnEnemy()
     {
-        for(int i = -6; i <= 6; i+=2)
+
+        int colunas = 10;
+        int linhas = 3;
+
+        for (int l = 0; l < linhas; l++)
         {
-            Vector3 newPosition = transform.position;
-            newPosition.x += i;
-            Instantiate(enemy, newPosition, Quaternion.identity, transform);
-            newPosition.y -= 1;
-            Instantiate(enemy, newPosition, Quaternion.identity, transform);
-            newPosition.y -= 1;
-            Instantiate(enemy, newPosition, Quaternion.identity, transform);
+            for(int c = -10; c < colunas; c+=2)
+            {
+                Instantiate(enemy, transform.position + new Vector3((c / 1.5f), -l, 0), Quaternion.identity, transform);
+            }
         }
-
-
+        
     }
 
     void EnemyMoove()
@@ -48,6 +48,8 @@ public class EnemyMovement : MonoBehaviour
         if(collision.gameObject.tag == "Wall")
         {
             direcao *= -1;
+            transform.position += new Vector3(0, -0.2f, 0);
+            enemyEntity.mooveSpeed += 0.1f;
         }
     }
 }
