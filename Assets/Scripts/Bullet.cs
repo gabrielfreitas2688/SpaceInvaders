@@ -4,6 +4,7 @@ public class Bullet : MonoBehaviour
 {
     private Rigidbody2D rb;
     EntityStates bulletEntity;
+    public bool isEnemyBullet;
     
     void Start()
     {
@@ -18,9 +19,14 @@ public class Bullet : MonoBehaviour
         
     }
 
-    void BulletShoot()
+    public void BulletShoot()
     {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, bulletEntity.bulletSpeed);
+        if (isEnemyBullet)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, bulletEntity.bulletSpeed * -1);
+        }
+        else { rb.linearVelocity = new Vector2(rb.linearVelocity.x, bulletEntity.bulletSpeed); }
+           
     }
 
 

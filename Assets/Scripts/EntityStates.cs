@@ -5,9 +5,10 @@ public class EntityStates : MonoBehaviour
     public float hp;
     public float maxHp;
     public float mooveSpeed;
-    public float demage;
+    public float damagePlayer;
     public float attackSpeed;
     public float bulletSpeed;
+    public float damageEnemy;
     void Start()
     {
         

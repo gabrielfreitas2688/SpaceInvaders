@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 1207161745354152016}
   - component: {fileID: 6403197483513141536}
   m_Layer: 0
-  m_Name: Bullet
-  m_TagString: Bullet
+  m_Name: BulletEnemy
+  m_TagString: BulletEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0778, y: 0.4227, z: 1}
+  m_LocalScale: {x: 0.07070464, y: 0.0621369, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fced856c55d5bbc4dac2351dde03255a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  isEnemyBullet: 1
 --- !u!114 &7451143932871004069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,9 +123,10 @@ MonoBehaviour:
   hp: 0
   maxHp: 0
   mooveSpeed: 0
-  demage: 0
+  damagePlayer: 0
   attackSpeed: 0
   bulletSpeed: 7
+  damageEnemy: 1
 --- !u!61 &1207161745354152016
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179,7 +181,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4771994430194859586}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

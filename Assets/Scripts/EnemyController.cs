@@ -4,43 +4,50 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
+    public Transform shootPosition;
+    public GameObject bulletEnemy;
+
     int intervaloTimer = 4;
     float cronometro = 0;
 
     void Start()
     {
-        
+       
     }
 
     void Update()
     {
-        EnemyShoot();   
+        Cronometer();   
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "BulletPlayer")
         {
             Destroy(this.gameObject);
 
             Destroy(collision.gameObject);
+
+            GameManeger.Instance.AddPoints(10);
         }
     }
 
-    void EnemyShoot()
+    void Cronometer()
     {
         cronometro += Time.deltaTime;
 
         if (cronometro >= intervaloTimer)
         {
             cronometro = 0;
-            int tryShoot = Random.Range(0, 30);
+            int tryShoot = Random.Range(0, 11);
             if(tryShoot == 10)
             {
-                Debug.Log("Tiro!");
+                Instantiate(bulletEnemy, shootPosition.position, Quaternion.identity);
+
 ;
             }
         }
         
     }
+
 }

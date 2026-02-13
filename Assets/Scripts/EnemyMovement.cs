@@ -48,8 +48,8 @@ public class EnemyMovement : MonoBehaviour
         if(collision.gameObject.tag == "Wall")
         {
             direcao *= -1;
-            transform.position += new Vector3(0, -0.2f, 0);
-            enemyEntity.mooveSpeed += 0.1f;
+            transform.position += new Vector3(0, -0.05f, 0);
+            enemyEntity.mooveSpeed += 0.02f;
         }
     }
 }
