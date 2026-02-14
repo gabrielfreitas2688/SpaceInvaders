@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManeger : MonoBehaviour
 {
+    public GameObject boss;
     public static GameManeger Instance;
     public Text score;
     public Text gameOver;
@@ -38,7 +39,7 @@ public class GameManeger : MonoBehaviour
         if (enemyCounter <= 0)
         {
             
-            Win();
+            BosSpawn();
         }
 
     }
@@ -68,5 +69,10 @@ public class GameManeger : MonoBehaviour
     public void CalcEnemys()
     {
         enemyCounter++;
+    }
+
+    void BosSpawn()
+    {
+        boss.gameObject.SetActive(true);
     }
 }
