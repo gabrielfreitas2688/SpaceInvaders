@@ -4,11 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Wall
   - Enemy
   - BulletPlayer
   - BulletEnemy
   - Bullet
+  - WallRight
+  - WallLeft
   layers:
   - Default
   - TransparentFX
