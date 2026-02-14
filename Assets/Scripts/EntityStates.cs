@@ -9,6 +9,7 @@ public class EntityStates : MonoBehaviour
     public float attackSpeed;
     public float bulletSpeed;
     public float damageEnemy;
+    public float hpDefencer;
     void Start()
     {
         

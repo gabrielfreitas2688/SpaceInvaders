@@ -1,29 +1,26 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class GameManeger : MonoBehaviour
 {
     public static GameManeger Instance;
     public Text score;
+    public Text gameOver;
+    public Text youWin;
+    public Button tryAgain;
+    public int enemyCounter = 0;
     int scoreAtual;
 
     private void Awake()
     {
-        if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Instance = this;
     }
-
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -36,5 +33,40 @@ public class GameManeger : MonoBehaviour
     {
         scoreAtual += points;
         score.text = "SCORE: " + scoreAtual;
+        Debug.Log("Inimigos restantes: " + enemyCounter);
+
+        if (enemyCounter <= 0)
+        {
+            
+            Win();
+        }
+
+    }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+        gameOver.gameObject.SetActive(true);
+        tryAgain.gameObject.SetActive(true);
+
+    }
+
+    public void TryAgain()
+    {
+        SceneManager.LoadScene("SampleScene");
+        Time.timeScale = 1;
+    }
+
+    public void Win()
+    {
+        Time.timeScale = 0;
+        youWin.gameObject.SetActive(true);
+        tryAgain.gameObject.SetActive(true);
+
+    }
+
+    public void CalcEnemys()
+    {
+        enemyCounter++;
     }
 }

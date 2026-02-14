@@ -48,14 +48,14 @@ public class EnemyMovement : MonoBehaviour
         if(collision.gameObject.tag == "WallRight" && direcao > 0)
         {
             direcao *= -1;
-            transform.position += new Vector3(0, -0.05f, 0);
-            enemyEntity.mooveSpeed += 0.02f;
+            transform.position += new Vector3(0, -0.15f, 0);
+            enemyEntity.mooveSpeed += 0.1f;
         }
         else if(collision.gameObject.tag == "WallLeft" && direcao < 0)
         {
             direcao *= -1;
-            transform.position += new Vector3(0, -0.05f, 0);
-            enemyEntity.mooveSpeed += 0.02f;
+            transform.position += new Vector3(0, -0.15f, 0);
+            enemyEntity.mooveSpeed += 0.1f;
         }
     }
 }

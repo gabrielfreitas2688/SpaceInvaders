@@ -34,6 +34,10 @@ public class Player : MonoBehaviour
             TomarDano(playerEntity.damageEnemy);
             Destroy(collision.gameObject);
         }
+        else if(collision.gameObject.tag == "Enemy")
+        {
+            GameManeger.Instance.GameOver();
+        }
     }
 
     void TomarDano(float dano)
@@ -43,7 +47,7 @@ public class Player : MonoBehaviour
         if (playerEntity.hp <= 0)
         {
             playerEntity.hp = 0;
-            Debug.Log("Morreu");
+            GameManeger.Instance.GameOver();
         }
     }
 }

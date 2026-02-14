@@ -7,12 +7,12 @@ public class EnemyController : MonoBehaviour
     public Transform shootPosition;
     public GameObject bulletEnemy;
 
-    int intervaloTimer = 4;
+    int intervaloTimer = 2;
     float cronometro = 0;
 
     void Start()
     {
-       
+        GameManeger.Instance.CalcEnemys();
     }
 
     void Update()
@@ -28,7 +28,9 @@ public class EnemyController : MonoBehaviour
 
             Destroy(collision.gameObject);
 
+            GameManeger.Instance.enemyCounter--;
             GameManeger.Instance.AddPoints(10);
+
         }
     }
 
@@ -40,11 +42,9 @@ public class EnemyController : MonoBehaviour
         {
             cronometro = 0;
             int tryShoot = Random.Range(0, 11);
-            if(tryShoot == 10)
+            if(tryShoot > 7)
             {
                 Instantiate(bulletEnemy, shootPosition.position, Quaternion.identity);
-
-;
             }
         }
         
