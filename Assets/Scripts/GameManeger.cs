@@ -34,7 +34,7 @@ public class GameManeger : MonoBehaviour
     {
         scoreAtual += points;
         score.text = "SCORE: " + scoreAtual;
-        Debug.Log("Inimigos restantes: " + enemyCounter);
+ 
 
         if (enemyCounter <= 0)
         {
